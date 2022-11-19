@@ -5,8 +5,9 @@ const router = express.Router();
 const userSchema = require('../models/userSchema')
 router.get('/', async (req, res) => {
      
-    var users = await userSchema.find();
+    var user = await userSchema.find();
      res.send(user);
+//aaaa
  });
  router.post('/c', async (req, res) => {
    console.log("habibbbbb")
