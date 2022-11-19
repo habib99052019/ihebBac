@@ -11,7 +11,7 @@ router.post('/send-mail1',async (req, res) => {
 
     const mailOptions = {
         from:"hearth.Of.carthage90@outlook.fr",
-        to:"ha9.0bib90@gmail.com" ,
+        to:"Contact@heartofcarthage.com" ,
         subject: 'حريف جديد',
         text:text
         
