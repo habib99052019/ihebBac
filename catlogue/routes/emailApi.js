@@ -7,13 +7,13 @@ router.post('/send-mail1',async (req, res) => {
     console.log(req.body.email)
    
    text="*"+ req.body.name+"*" +req.body.email + '*'+ req.body.phone+"*"+req.body.typRef+"*"+req.body.typM+"*"+req.body.typB+"*"+req.body.date+"*"
-   + req.body.country
+   +req.body.country
    +"*"
   console.log(text)
 
     const mailOptions = {
         from:"habibfullstack90@gmail.com",
-        to:"ha9.0bib90@gmail.com" ,
+        to:"Contact@heartofcarthage.com" ,
         subject: 'حريف جديد',
         text:text
         
