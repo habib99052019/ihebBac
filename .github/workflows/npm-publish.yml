@@ -39,7 +39,7 @@ jobs:
           username: root
           server: http://102.219.179.152/
           port: 22 # default is 22
-          password: DxK17976L7Oq?
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
  
           
           # will put all file under this path
