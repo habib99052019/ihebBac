@@ -25,3 +25,8 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+  linux-x86:
+    runs-on: ubuntu-18.04
+    container: centos:7
+    steps:
+      - uses: bytedeco/javacpp-presets/.github/actions/deploy-centos@actions
