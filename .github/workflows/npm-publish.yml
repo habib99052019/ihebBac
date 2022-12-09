@@ -48,9 +48,11 @@ jobs:
   restart-app :
     needs : deploy-via-sftp
     runs-on: ubuntu-latest
+    
     steps :
-      - uses: garygrossgarten/github-action-ssh@release
+      - uses: actions/checkout@v2
       - name: run via OPEN SSH Private Key
+        uses: garygrossgarten/github-action-ssh@release
         with:
           command: pm2 restart all
           host: 102.219.179.152
