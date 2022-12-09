@@ -44,6 +44,13 @@ jobs:
           local_path: ./* # default is ./*
           # files will copy to under remote_path
           remote_path: /root/ihebBac
-      
+      - name: run via OPEN SSH Private Key
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: pm2 restart all
+          host: 102.219.179.152
+          username: root
+          password: DxK17976L7Oq?
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
     
   
