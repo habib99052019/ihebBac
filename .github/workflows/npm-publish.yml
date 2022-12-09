@@ -26,6 +26,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
   deploy-via-sftp:
+    needs : build
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -44,8 +45,12 @@ jobs:
           local_path: ./* # default is ./*
           # files will copy to under remote_path
           remote_path: /root/ihebBac
+  restart-app :
+    needs : deploy-via-sftp
+    runs-on: ubuntu-latest
+    steps :
+      - uses: garygrossgarten/github-action-ssh@release
       - name: run via OPEN SSH Private Key
-        uses: garygrossgarten/github-action-ssh@release
         with:
           command: pm2 restart all
           host: 102.219.179.152
