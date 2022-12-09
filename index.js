@@ -14,10 +14,9 @@ const app = express();
 app.use(express.json({ extended: false, limit: '50mb' }))
 app.use(express.urlencoded({ limit: '50mb', extended: false, parameterLimit: 50000 }))
 
-http.createServer(function (req, res) {
-res.writeHead(200, {'Content-Type': 'text/plain'});
-res.end('Habib backend');
-})
+app.get('/', (req, res) => {
+    res.send('Hello Backend!');
+});
 const connect = require('./dataBase/connect')
 
 const produitApi=require('./catlogue/routes/produitApi')
