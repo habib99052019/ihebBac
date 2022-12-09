@@ -2,7 +2,7 @@ const express = require('express')
 //body parser
 var bodyParser = require('body-parser');
 
-
+var http = require('http');
 
 
 
@@ -14,6 +14,10 @@ const app = express();
 app.use(express.json({ extended: false, limit: '50mb' }))
 app.use(express.urlencoded({ limit: '50mb', extended: false, parameterLimit: 50000 }))
 
+http.createServer(function (req, res) {
+res.writeHead(200, {'Content-Type': 'text/plain'});
+res.end('Habib backend');
+})
 const connect = require('./dataBase/connect')
 
 const produitApi=require('./catlogue/routes/produitApi')
