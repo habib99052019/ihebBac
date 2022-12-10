@@ -44,7 +44,7 @@ jobs:
           # will put all file under this path
           local_path: ./* # default is ./*
           # files will copy to under remote_path
-          remote_path: /root/ihebBac
+          remote_path: ${{ secrets.VPS_SERVER_REMOTE_PATH }}
   restart-app :
     needs : deploy-via-sftp
     runs-on: ubuntu-latest
@@ -55,9 +55,9 @@ jobs:
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: pm2 restart all
-          host: 102.219.179.152
-          username: root
-          password: DxK17976L7Oq?
+          host: ${{ secrets.VPS_SERVER }}
+          username: ${{ secrets.SERVER_USER }}
+          password:  ${{ secrets.SERVER_PASS }}
           privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
     
   
