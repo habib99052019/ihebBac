@@ -13,7 +13,8 @@ const  userSchema = new mongoose.Schema({
     typB:String,
     date:String,
     country:String,
-    DateN:String
+    project:String,
+    DateN:String,
 
    
 
