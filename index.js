@@ -2,6 +2,8 @@ const express = require('express')
 //body parser
 var bodyParser = require('body-parser');
 var http = require('http');
+const path = require('path');
+var multer = require('multer');
 console.log('produit')
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -46,7 +48,7 @@ app.use('/backend/vila',vila);
 app.use('/backend/appr',appr);
 app.use('/backend/rent',rent);
 
-//app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
+app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -60,32 +62,32 @@ const storage = multer.diskStorage({
         cb(null, name);
     }
 });
-// const fileFilter = (req, file, cb) => {
-//     cb(null, true);
-//    /* if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' || file.mimetype == 'image/pdf') {
-//         cb(null, true);
-//     } else {
-//         cb(null, false);
-//     }*/
-// }
-// const upload = multer({ storage: storage, fileFilter: fileFilter });
-// //Upload route
-// // app.post('/backend/upload', upload.single('image'), (req, res, next) => {
-// //     try {
-// //         /*return res.status(201).json({
-// //             message: 'File uploded successfully'
-// //         });*/
-// //         return res.status(201).json({
-// //             message: 'File uploded successfully',
-// //             source:'https://heart-of-carthage-dubai.com/backend/uploads/'+name,
-// //             name:name
-// //         });
+const fileFilter = (req, file, cb) => {
+    cb(null, true);
+   /* if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' || file.mimetype == 'image/pdf') {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }*/
+}
+const upload = multer({ storage: storage, fileFilter: fileFilter });
+//Upload route
+app.post('/backend/upload', upload.single('image'), (req, res, next) => {
+    try {
+        /*return res.status(201).json({
+            message: 'File uploded successfully'
+        });*/
+        return res.status(201).json({
+            message: 'File uploded successfully',
+            source:'https://heart-of-carthage-dubai.com/backend/uploads/'+name,
+            name:name
+        });
         
-// //     } catch (error) {
-// //         console.error(error);
-// //     }
-// // });
-// //port
+    } catch (error) {
+        console.error(error);
+    }
+});
+//port
 const port = process.env.PORT || 5900;
 app.listen(port,()=>console.log(`Server listen on the port ${port}`)) ;
 
