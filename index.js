@@ -46,29 +46,29 @@ app.use('/backend/vila',vila);
 app.use('/backend/appr',appr);
 app.use('/backend/rent',rent);
 
-app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
+//app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
 
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, 'uploads');
-//         console.log(file);
-//     },
-//     filename: (req, file, cb) => {
-//       name = Date.now() + file.originalname //path.extname(file.originalname);
-//         console.log(file);
-//         console.log(name);
-//         cb(null, name);
-//     }
-// });
-// const fileFilter = (req, file, cb) => {
-//     cb(null, true);
-//    /* if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' || file.mimetype == 'image/pdf') {
-//         cb(null, true);
-//     } else {
-//         cb(null, false);
-//     }*/
-// }
-// const upload = multer({ storage: storage, fileFilter: fileFilter });
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads');
+        console.log(file);
+    },
+    filename: (req, file, cb) => {
+      name = Date.now() + file.originalname //path.extname(file.originalname);
+        console.log(file);
+        console.log(name);
+        cb(null, name);
+    }
+});
+const fileFilter = (req, file, cb) => {
+    cb(null, true);
+   /* if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' || file.mimetype == 'image/pdf') {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }*/
+}
+const upload = multer({ storage: storage, fileFilter: fileFilter });
 // //Upload route
 // // app.post('/backend/upload', upload.single('image'), (req, res, next) => {
 // //     try {
