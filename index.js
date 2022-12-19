@@ -21,6 +21,8 @@ const sousCatigorieApi=require('./catlogue/routes/sousCatigorieApi')
 const userApi= require('./catlogue/routes/userApi')
 const emailApi= require('./catlogue/routes/emailApi')
 const vila = require('./catlogue/routes/vilaApi')
+const appr= require('./catlogue/routes/appApi')
+
 //activer les api
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -37,6 +39,8 @@ app.use('/backend/sousCat',sousCatigorieApi);
 app.use('/backend/email',emailApi);
 app.use('/backend/todo',userApi);
 app.use('/backend/vila',vila);
+app.use('/appr',appr);
+
 //port
 const port = process.env.PORT || 5900;
 app.listen(port,()=>console.log(`Server listen on the port ${port}`)) ;
