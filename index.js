@@ -37,21 +37,21 @@ app.use((req, res, next) => {
 
 //routes
 
-app.use('/produit',produitApi);
-app.use('/catigorie',catigorieApi)
-app.use('/sousCat',sousCatigorieApi);
-app.use('/email',emailApi);
-app.use('/todo',userApi);
-app.use('/off',off);
-app.use('/vila',vila);
-app.use('/appr',appr);
-app.use('/rent',rent);
+app.use('/backend/produit',produitApi);
+app.use('/backend/catigorie',catigorieApi)
+app.use('/backend/sousCat',sousCatigorieApi);
+app.use('/backend/email',emailApi);
+app.use('/backend/todo',userApi);
+app.use('/backend/off',off);
+app.use('/backend/vila',vila);
+app.use('/backend/appr',appr);
+app.use('/backend/rent',rent);
 
 //port
 const port = process.env.POR || 5900
 //multer
 var name=""
-app.use('/uploads/', express.static(path.join(__dirname, '/uploads')));
+app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
