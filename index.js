@@ -22,6 +22,8 @@ const userApi= require('./catlogue/routes/userApi')
 const emailApi= require('./catlogue/routes/emailApi')
 const vila = require('./catlogue/routes/vilaApi')
 const appr= require('./catlogue/routes/appApi')
+const off= require('./catlogue/routes/off-plan')
+const rent= require('./catlogue/routes/rentApi')
 
 //activer les api
 app.use((req, res, next) => {
@@ -39,7 +41,10 @@ app.use('/backend/sousCat',sousCatigorieApi);
 app.use('/backend/email',emailApi);
 app.use('/backend/todo',userApi);
 app.use('/backend/vila',vila);
-app.use('/appr',appr);
+app.use('/backend/off',off);
+app.use('/backend/vila',vila);
+app.use('/backend/appr',appr);
+app.use('/backend/rent',rent);
 
 //port
 const port = process.env.PORT || 5900;
