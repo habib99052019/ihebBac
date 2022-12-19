@@ -70,7 +70,7 @@ const fileFilter = (req, file, cb) => {
 }
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 //Upload route
-app.post('/upload', upload.single('image'), (req, res, next) => {
+app.post('/backend/upload', upload.single('image'), (req, res, next) => {
     try {
         /*return res.status(201).json({
             message: 'File uploded successfully'
