@@ -46,7 +46,7 @@ app.use('/backend/vila',vila);
 app.use('/backend/appr',appr);
 app.use('/backend/rent',rent);
 
-// app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
+app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
 
 // const storage = multer.diskStorage({
 //     destination: (req, file, cb) => {
