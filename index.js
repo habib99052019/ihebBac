@@ -70,21 +70,21 @@ const fileFilter = (req, file, cb) => {
 }
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 //Upload route
-app.post('/backend/upload', upload.single('image'), (req, res, next) => {
-    try {
-        /*return res.status(201).json({
-            message: 'File uploded successfully'
-        });*/
-        return res.status(201).json({
-            message: 'File uploded successfully',
-            source:'https://heart-of-carthage-dubai.com/backend/uploads/'+name,
-            name:name
-        });
+// app.post('/backend/upload', upload.single('image'), (req, res, next) => {
+//     try {
+//         /*return res.status(201).json({
+//             message: 'File uploded successfully'
+//         });*/
+//         return res.status(201).json({
+//             message: 'File uploded successfully',
+//             source:'https://heart-of-carthage-dubai.com/backend/uploads/'+name,
+//             name:name
+//         });
         
-    } catch (error) {
-        console.error(error);
-    }
-});
+//     } catch (error) {
+//         console.error(error);
+//     }
+// });
 //port
 const port = process.env.PORT || 5900;
 app.listen(port,()=>console.log(`Server listen on the port ${port}`)) ;
