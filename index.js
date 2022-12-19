@@ -48,44 +48,44 @@ app.use('/backend/rent',rent);
 
 // app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads');
-        console.log(file);
-    },
-    filename: (req, file, cb) => {
-      name = Date.now() + file.originalname //path.extname(file.originalname);
-        console.log(file);
-        console.log(name);
-        cb(null, name);
-    }
-});
-const fileFilter = (req, file, cb) => {
-    cb(null, true);
-   /* if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' || file.mimetype == 'image/pdf') {
-        cb(null, true);
-    } else {
-        cb(null, false);
-    }*/
-}
-const upload = multer({ storage: storage, fileFilter: fileFilter });
-//Upload route
-// app.post('/backend/upload', upload.single('image'), (req, res, next) => {
-//     try {
-//         /*return res.status(201).json({
-//             message: 'File uploded successfully'
-//         });*/
-//         return res.status(201).json({
-//             message: 'File uploded successfully',
-//             source:'https://heart-of-carthage-dubai.com/backend/uploads/'+name,
-//             name:name
-//         });
-        
-//     } catch (error) {
-//         console.error(error);
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, 'uploads');
+//         console.log(file);
+//     },
+//     filename: (req, file, cb) => {
+//       name = Date.now() + file.originalname //path.extname(file.originalname);
+//         console.log(file);
+//         console.log(name);
+//         cb(null, name);
 //     }
 // });
-//port
+// const fileFilter = (req, file, cb) => {
+//     cb(null, true);
+//    /* if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' || file.mimetype == 'image/pdf') {
+//         cb(null, true);
+//     } else {
+//         cb(null, false);
+//     }*/
+// }
+// const upload = multer({ storage: storage, fileFilter: fileFilter });
+// //Upload route
+// // app.post('/backend/upload', upload.single('image'), (req, res, next) => {
+// //     try {
+// //         /*return res.status(201).json({
+// //             message: 'File uploded successfully'
+// //         });*/
+// //         return res.status(201).json({
+// //             message: 'File uploded successfully',
+// //             source:'https://heart-of-carthage-dubai.com/backend/uploads/'+name,
+// //             name:name
+// //         });
+        
+// //     } catch (error) {
+// //         console.error(error);
+// //     }
+// // });
+// //port
 const port = process.env.PORT || 5900;
 app.listen(port,()=>console.log(`Server listen on the port ${port}`)) ;
 
