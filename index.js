@@ -4,9 +4,9 @@ var bodyParser = require('body-parser');
 var http = require('http');
 console.log('produit')
 const app = express();
-//app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
-//app.use(bodyParser.json())
+app.use(bodyParser.json())
 app.use(express.json({ extended: false, limit: '50mb' }))
 app.use(express.urlencoded({ limit: '50mb', extended: false, parameterLimit: 50000 }))
 
@@ -60,15 +60,15 @@ const storage = multer.diskStorage({
         cb(null, name);
     }
 });
-const fileFilter = (req, file, cb) => {
-    cb(null, true);
-   /* if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' || file.mimetype == 'image/pdf') {
-        cb(null, true);
-    } else {
-        cb(null, false);
-    }*/
-}
-const upload = multer({ storage: storage, fileFilter: fileFilter });
+// const fileFilter = (req, file, cb) => {
+//     cb(null, true);
+//    /* if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' || file.mimetype == 'image/pdf') {
+//         cb(null, true);
+//     } else {
+//         cb(null, false);
+//     }*/
+// }
+// const upload = multer({ storage: storage, fileFilter: fileFilter });
 // //Upload route
 // // app.post('/backend/upload', upload.single('image'), (req, res, next) => {
 // //     try {
