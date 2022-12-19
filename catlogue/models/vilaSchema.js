@@ -7,7 +7,8 @@ const  vilaSchema= new mongoose.Schema({
   desc:String,
   prix:String,
   prixFinal:String,
-  
+  lng:Number ,
+  lat:Number,
   imageProfil:String,
   imgs:[],
   video:String

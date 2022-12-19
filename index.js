@@ -42,13 +42,13 @@ app.use('/backend/catigorie',catigorieApi)
 app.use('/backend/sousCat',sousCatigorieApi);
 app.use('/backend/email',emailApi);
 app.use('/backend/todo',userApi);
-app.use('/backend/vila',vila);
+app.use('/bacend/vila',vila);
 app.use('/backend/off',off);
 app.use('/backend/vila',vila);
 app.use('/backend/appr',appr);
 app.use('/backend/rent',rent);
 
-app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
+app.use('/uploads/', express.static(path.join(__dirname, '/uploads')));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {

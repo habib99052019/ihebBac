@@ -8,6 +8,8 @@ const  rentSchema= new mongoose.Schema({
   prix:String,
   prixFinal:String,
   imageProfil:String,
+  lng:Number ,
+  lat:Number,
   imgs:[],
   video:String
 
