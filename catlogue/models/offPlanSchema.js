@@ -7,6 +7,7 @@ const  offSchema= new mongoose.Schema({
   desc:String,
   prix:String,
   prixFinal:String,
+  dev:String,
   carc:[],
   lng:Number ,
   lat:Number,
