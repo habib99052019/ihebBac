@@ -54,6 +54,7 @@ jobs:
       - name: run via OPEN SSH Private Key
         uses: garygrossgarten/github-action-ssh@release
         with:
+        
           command: pm2 restart all
           host: ${{ secrets.VPS_SERVER }}
           username: ${{ secrets.SERVER_USER }}
