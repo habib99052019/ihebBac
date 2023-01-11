@@ -9,9 +9,5 @@ const  catigorieSchema= new mongoose.Schema({
     verifCatAc:Boolean,
     imgs:[],
     sousCatigorie:[{type: Schema.Types.ObjectId, ref:'sousCatigorie'}]
-
-   
-
-
   });
 module.exports=mongoose.model('catigorie',catigorieSchema);
